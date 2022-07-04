@@ -7,7 +7,7 @@
     <v-footer v-if="!inframe" class="justify-center">
       <span>
         &copy; {{ new Date().getFullYear() }}
-        <a :href="mainUrl">ItemSzop</a>
+        <a :href="mainUrl">ItemSzop</a> | Serwer GamesMC.pl nie jest w żaden sposób powiązany z firmą Mojang AB.
       </span>
     </v-footer>
   </v-app>
