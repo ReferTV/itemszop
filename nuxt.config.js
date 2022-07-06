@@ -43,8 +43,8 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: 'ItemSzop - %s',
-    title: 'Darmowy sklep serwera minecraftowego',
+    titleTemplate: 'GamesMC.pl » - %s',
+    title: 'GamesMC.pl »',
     htmlAttrs: {
       lang: 'en'
     },
@@ -95,9 +95,9 @@ export default {
         author: 'michaljaz'
       },
       manifest: {
-        name: 'ItemSzop',
-        short_name: 'ItemSzop',
-        description: 'Darmowy sklep serwera minecraftowego',
+        name: 'Sklep',
+        short_name: 'Sklep',
+        description: 'Sklep serwera GamesMC.pl',
         lang: 'pl'
       }
     }],
