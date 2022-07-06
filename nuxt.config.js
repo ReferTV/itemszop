@@ -43,7 +43,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: 'GamesMC.pl » - %s',
+    titleTemplate: 'GamesMC.pl » %s',
     title: 'GamesMC.pl »',
     htmlAttrs: {
       lang: 'en'
