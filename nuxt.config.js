@@ -51,15 +51,15 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'description', content: `Darmowy sklep serwera minecraftowego` },
-      { name: 'keywords', content: 'ItemSzop' },
+      { name: 'description', content: `Sklep serwera GamesMC.pl` },
+      { name: 'keywords', content: 'GamesMC.pl' },
       { property: 'og:site_name', content: 'ItemSzop' },
       { property: 'og:url', content: 'https://itemszop.tk' },
       { property: 'og:type', content: 'website' },
-      { property: 'og:title', content: `ItemSzop` },
-      { property: 'og:description', content: `Darmowy sklep serwera minecraftowego`},
+      { property: 'og:title', content: `GamesMC.pl` },
+      { property: 'og:description', content: `Sklep serwera GamesMC.pl`},
       { property: 'og:image', content: 'https://itemszop.tk/icon.png'},
-      { property: 'og:image:alt', content: `Ikona ItemSzopu`},
+      { property: 'og:image:alt', content: `GamesMC.pl`},
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
