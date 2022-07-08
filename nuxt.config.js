@@ -52,6 +52,15 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
+      { name: 'description', content: `Darmowy sklep serwera minecraftowego` },
+      { name: 'keywords', content: 'ItemSzop' },
+      { property: 'og:site_name', content: 'ItemSzop' },
+      { property: 'og:url', content: 'https://itemszop.tk' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:title', content: `ItemSzop` },
+      { property: 'og:description', content: `Darmowy sklep serwera minecraftowego`},
+      { property: 'og:image', content: 'https://itemszop.tk/icon.png'},
+      { property: 'og:image:alt', content: `Ikona ItemSzopu`},
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
@@ -89,19 +98,7 @@ export default {
     }],
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
-    ['@nuxtjs/pwa', {
-      meta: {
-        title: 'ItemSzop',
-        author: 'michaljaz'
-      },
-      manifest: {
-        name: 'Sklep',
-        short_name: 'Sklep',
-        description: 'Sklep serwera GamesMC.pl',
-        lang: 'pl'
-      }
-    }],
-    '~/modules/update_firebase_rules.js'
+    '~/modules/firebase_init.js'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
