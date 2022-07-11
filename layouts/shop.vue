@@ -147,10 +147,10 @@
               </v-card-text>
             </v-card>
             <iframe
-              v-if="shop.dsc_id"
+              v-if="shop.dsc"
               style="z-index:100;position: relative;"
               class="mt-5"
-              :src="`https://discord.com/widget?id=${shop.dsc_id}&theme=dark`"
+              :src="`https://discord.com/widget?id=${shop.dsc}&theme=dark`"
               width="100%"
               height="400"
               allowtransparency="true"
@@ -190,7 +190,15 @@ export default {
   },
   head () {
     return {
-      titleTemplate: this.titleTemplate
+      titleTemplate: this.titleTemplate,
+      link: [
+        {
+          hid: 'icon',
+          rel: 'icon',
+          type: 'image/x-icon',
+          href: this.shop.icon ? this.shop.icon : '/favicon.ico'
+        }
+      ]
     }
   },
   computed: {
@@ -249,12 +257,6 @@ export default {
       main.style['-ms-filter'] = state
     },
     shop () {
-      const favicon = document.querySelector("link[rel~='icon']")
-      if (this.shop.icon) {
-        favicon.href = this.shop.icon
-      } else {
-        favicon.href = '/favicon.ico'
-      }
       if (this.shop.background) {
         this.background = true
         this.backgroundUrl = this.shop.background
