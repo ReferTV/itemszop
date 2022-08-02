@@ -75,14 +75,14 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '@mdi/font/css/materialdesignicons.min.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~/plugins/gtag.js', mode: 'client' },
     { src: '~/plugins/tiptapvuetify.js', mode: 'client' },
-    { src: '~/plugins/regex.js' },
-    { src: '~/plugins/vuedraggable.js', mode: 'client' }
+    { src: '~/plugins/regex.js' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -96,7 +96,7 @@ export default {
       fix: true
     }],
     // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify',
+    ['@nuxtjs/vuetify', { iconfont: 'mdi' }],
     '~/modules/firebase_init.js'
   ],
 
