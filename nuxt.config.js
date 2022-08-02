@@ -96,7 +96,7 @@ export default {
       fix: true
     }],
     // https://go.nuxtjs.dev/vuetify
-    ['@nuxtjs/vuetify', { iconfont: 'mdi' }],
+    '@nuxtjs/vuetify',
     '~/modules/firebase_init.js'
   ],
 
@@ -174,9 +174,7 @@ export default {
         }
       }
     },
-    defaultAssets: {
-      font: false
-    }
+    defaultAssets: false
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
