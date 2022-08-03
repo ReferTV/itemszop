@@ -27,6 +27,7 @@ last_payments_type - rodzaj listy ostatnich płatności
 theme - motyw strony
 gid - ID google analytics
 announcement - czasowe ogłoszenie w html
+topc - czy widżet z top-customerem jest włączony
 
 === STRONY W SKLEPIE ===
 REF: /shops/[id sklepu]/pages/[id strony]

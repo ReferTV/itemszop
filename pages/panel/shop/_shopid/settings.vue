@@ -163,6 +163,14 @@
             </v-card-text>
           </v-card>
         </v-col>
+        <v-col v-if="properties.includes('topc')" cols="12" md="4" sm="6">
+          <v-card>
+            <v-card-title>
+              Widżet top-customer
+            </v-card-title>
+            <v-card-text />
+          </v-card>
+        </v-col>
       </v-row>
     </v-form>
     <h1 class="display-1 mt-3 mb-5">
@@ -248,7 +256,8 @@ export default {
         { name: this.$t('fields.shop_theme'), value: 'theme' },
         { name: this.$t('fields.discord_webhook'), value: 'webhook' },
         { name: this.$t('fields.discord_widget'), value: 'dsc' },
-        { name: this.$t('fields.google_analytics'), value: 'gid' }
+        { name: this.$t('fields.google_analytics'), value: 'gid' },
+        { name: 'Widżet top-customer', value: 'topc' }
       ],
       fields: {
         name: this.shop.name,
@@ -262,7 +271,8 @@ export default {
         hist: {
           max: this.shop.hist ? this.shop.hist.max : 1,
           type: this.shop.hist ? this.shop.hist.type : 1
-        }
+        },
+        topc: this.shop.topc
       },
       last_payments_type_list: [
         { name: this.$t('fields.vertical_history'), value: 1 },
@@ -322,7 +332,8 @@ export default {
           dsc: this.properties.includes('dsc') ? this.fields.dsc : '',
           background: this.properties.includes('background') ? this.fields.background : '',
           theme: this.properties.includes('theme') ? this.fields.theme : '',
-          gid: this.properties.includes('gid') ? this.fields.gid : ''
+          gid: this.properties.includes('gid') ? this.fields.gid : '',
+          topc: this.properties.includes('topc')
         })
         await this.$fire.database.ref().child(`config/${shopid}`).update({
           webhook: this.properties.includes('webhook') ? this.fields.webhook : ''

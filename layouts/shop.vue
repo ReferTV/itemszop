@@ -96,9 +96,27 @@
               </v-card-title>
               <v-card-text>
                 <v-progress-linear :value="collected" :color="shop.theme ? shop.theme : 'blue darken-4'" />
-                <h1 class="mt-4 d-flex headline justify-center">
-                  „{{ $t('titles.server_maintenance') }}”
-                </h1>
+              </v-card-text>
+            </v-card>
+            <v-card v-if="shop.topc" class="mb-5">
+              <v-card-title class="headline justify-center">
+                TopCustomer
+              </v-card-title>
+              <v-card-text>
+                <v-list flat>
+                  <v-list-item two-line>
+                    <v-list-item-avatar
+                      tile
+                      size="40"
+                    >
+                      <v-img class="rounded-lg" :src="`https://crafthead.net/helm/Notch/32`" />
+                    </v-list-item-avatar>
+                    <v-list-item-content>
+                      <v-list-item-title>Notch</v-list-item-title>
+                      <v-list-item-subtitle>Podarował 1000zł</v-list-item-subtitle>
+                    </v-list-item-content>
+                  </v-list-item>
+                </v-list>
               </v-card-text>
             </v-card>
             <v-card v-if="shop.hist">
