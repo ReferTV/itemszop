@@ -67,7 +67,8 @@ export default {
     go_back: 'Cofnij się',
     generate_new_key: 'Wygeneruj nowy klucz',
     send_test_message: 'Wyślij testową wiadomość',
-    reset_stack: 'Zresetuj stos komend'
+    reset_stack: 'Zresetuj stos komend',
+    remove_selected: 'Usuń zaznaczone'
   },
 
   fields: {
@@ -135,7 +136,8 @@ export default {
     module_enabled: 'Moduł włączony',
     choose_payment_method: 'Wybierz sposób płatności',
     commands_in_queue: 'Komendy w kolejce',
-    plugin_secret: 'Klucz do pluginu'
+    plugin_secret: 'Klucz do pluginu',
+    search: 'Szukaj'
   },
 
   formats: {
@@ -206,7 +208,8 @@ export default {
     buy_service_4: 'Realizacja',
     main_page: 'Strona główna',
     modules: 'Moduły',
-    voucher_success: 'Pomyślnie użyto vouchera'
+    voucher_success: 'Pomyślnie użyto vouchera',
+    top_customer_widget: 'Widżet top-customer'
   },
 
   responses: {

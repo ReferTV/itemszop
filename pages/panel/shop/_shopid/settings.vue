@@ -166,9 +166,19 @@
         <v-col v-if="properties.includes('topc')" cols="12" md="4" sm="6">
           <v-card>
             <v-card-title>
-              Widżet top-customer
+              {{ $t("titles.top_customer_widget") }}
             </v-card-title>
             <v-card-text />
+          </v-card>
+        </v-col>
+        <v-col v-if="properties.includes('temp')" cols="12" md="4" sm="6">
+          <v-card>
+            <v-card-title>
+              {{ $t('titles.temp_announcement') }}
+            </v-card-title>
+            <v-card-text>
+              <TiptapEditor :editorcontent="fields.temp" @content="fields.temp=$event" />
+            </v-card-text>
           </v-card>
         </v-col>
       </v-row>
@@ -251,13 +261,14 @@ export default {
       properties_items: [
         { name: this.$t('fields.shop_icon'), value: 'icon' },
         { name: this.$t('fields.shop_background'), value: 'background' },
-        { name: 'Ostatnie zakupy w sklepie', value: 'hist' },
+        { name: this.$t('titles.latest_payments'), value: 'hist' },
         { name: this.$t('titles.monthly_goal'), value: 'goal' },
         { name: this.$t('fields.shop_theme'), value: 'theme' },
         { name: this.$t('fields.discord_webhook'), value: 'webhook' },
         { name: this.$t('fields.discord_widget'), value: 'dsc' },
         { name: this.$t('fields.google_analytics'), value: 'gid' },
-        { name: 'Widżet top-customer', value: 'topc' }
+        { name: this.$t('titles.top_customer_widget'), value: 'topc' },
+        { name: this.$t('titles.temp_announcement'), value: 'temp' }
       ],
       fields: {
         name: this.shop.name,
@@ -272,7 +283,8 @@ export default {
           max: this.shop.hist ? this.shop.hist.max : 1,
           type: this.shop.hist ? this.shop.hist.type : 1
         },
-        topc: this.shop.topc
+        topc: this.shop.topc,
+        temp: this.shop.temp ? this.shop.temp : ''
       },
       last_payments_type_list: [
         { name: this.$t('fields.vertical_history'), value: 1 },
@@ -333,7 +345,8 @@ export default {
           background: this.properties.includes('background') ? this.fields.background : '',
           theme: this.properties.includes('theme') ? this.fields.theme : '',
           gid: this.properties.includes('gid') ? this.fields.gid : '',
-          topc: this.properties.includes('topc')
+          topc: this.properties.includes('topc'),
+          temp: this.properties.includes('temp') ? this.fields.temp : ''
         })
         await this.$fire.database.ref().child(`config/${shopid}`).update({
           webhook: this.properties.includes('webhook') ? this.fields.webhook : ''

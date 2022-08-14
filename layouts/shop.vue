@@ -48,7 +48,7 @@
         <v-row>
           <v-col md="8" sm="12" xs="12" cols="12">
             <v-alert
-              v-if="shop.announcement"
+              v-if="shop.temp"
               :color="shop.theme ? shop.theme : 'blue darken-4'"
               dismissible
               colored-border
@@ -59,7 +59,7 @@
               <!-- eslint-disable vue/no-v-html -->
               <div
                 class="mt-2 overflow-y-auto"
-                v-html="shop.announcement"
+                v-html="shop.temp"
               />
               <!--eslint-enable-->
             </v-alert>

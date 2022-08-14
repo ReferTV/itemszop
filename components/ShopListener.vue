@@ -27,6 +27,7 @@ export default {
     return {
       shop: {},
       servers: {},
+      vouchers: {},
       config: {},
       listeningServers: {},
       shopid: this.$route.params.shopid ? this.$route.params.shopid : process.env.singleShopId
@@ -56,10 +57,16 @@ export default {
     },
     config () {
       this.$emit('config', this.config)
+    },
+    vouchers () {
+      this.$emit('vouchers', this.vouchers)
     }
   },
   mounted () {
     this.createShopListener(this.shopid)
+    if (!this.public) {
+      this.createVoucherListener(this.shopid)
+    }
   },
   beforeDestroy () {
     this.destroyListeners(this.shopid)
@@ -86,6 +93,12 @@ export default {
       delete newServers[serverId]
       this.servers = newServers
       this.$fire.database.ref().child(`servers/${serverId}`).off('value')
+    },
+    createVoucherListener (shopId) {
+      this.$fire.database.ref().child(`vouchers/${shopId}`)
+        .on('value', (snapshot) => {
+          this.vouchers = snapshot.exists() && snapshot.val() !== null ? snapshot.val() : {}
+        })
     },
     createServerListener (serverId) {
       this.listeningServers[serverId] = true
@@ -177,6 +190,7 @@ export default {
       this.$fire.database.ref().child(`config/${shopId}/microsms_sms_text`).off('value')
       this.$fire.database.ref().child(`config/${shopId}/lvlup`).off('value')
       this.$fire.database.ref().child(`config/${shopId}/microsms`).off('value')
+      this.$fire.database.ref().child(`vouchers/${shopId}`).off('value')
     }
   }
 }

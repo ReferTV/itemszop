@@ -98,13 +98,13 @@
       <v-subheader>{{ $t('titles.modules') }}</v-subheader>
       <v-list-item
         link
-        :to="`/panel/shop/${$route.params.shopid}/pages`"
+        :to="`/panel/shop/${$route.params.shopid}/payments`"
       >
         <v-list-item-icon>
-          <v-icon>mdi-file</v-icon>
+          <v-icon>mdi-credit-card-plus</v-icon>
         </v-list-item-icon>
         <v-list-item-content>
-          <v-list-item-title>{{ $t('titles.pages') }}</v-list-item-title>
+          <v-list-item-title>{{ $t('titles.payments') }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
       <v-list-item
@@ -129,18 +129,18 @@
           <v-list-item-title>{{ $t('titles.services') }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
+      <v-subheader>{{ $t('titles.additional_modules') }}</v-subheader>
       <v-list-item
         link
-        :to="`/panel/shop/${$route.params.shopid}/payments`"
+        :to="`/panel/shop/${$route.params.shopid}/pages`"
       >
         <v-list-item-icon>
-          <v-icon>mdi-credit-card-plus</v-icon>
+          <v-icon>mdi-file</v-icon>
         </v-list-item-icon>
         <v-list-item-content>
-          <v-list-item-title>{{ $t('titles.payments') }}</v-list-item-title>
+          <v-list-item-title>{{ $t('titles.pages') }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
-      <v-subheader>{{ $t('titles.additional_modules') }}</v-subheader>
       <v-list-item
         link
         :to="`/panel/shop/${$route.params.shopid}/vouchers`"
@@ -150,17 +150,6 @@
         </v-list-item-icon>
         <v-list-item-content>
           <v-list-item-title>{{ $t('titles.vouchers') }}</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-      <v-list-item
-        link
-        :to="`/panel/shop/${$route.params.shopid}/temp`"
-      >
-        <v-list-item-icon>
-          <v-icon>mdi-bullhorn</v-icon>
-        </v-list-item-icon>
-        <v-list-item-content>
-          <v-list-item-title>{{ $t('titles.temp_announcement') }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-navigation-drawer>

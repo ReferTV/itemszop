@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card elevation="2" class="pt-1">
+    <v-card class="pt-1">
       <v-card-title class="headline">
         <span class="text-h5">{{ $t('titles.adding_vouchers') }}</span>
       </v-card-title>
@@ -94,19 +94,29 @@
         </v-btn>
       </v-card-actions>
     </v-card>
-    <v-card elevation="2" class="pt-1 mt-5">
-      <v-card-title class="headline">
-        <span class="text-h5">{{ $t('titles.removing_vouchers') }}</span>
-      </v-card-title>
-      <v-card-actions>
-        <v-spacer />
-        <v-btn
-          color="error"
-          @click="del"
-        >
-          {{ $t('actions.remove_all_vouchers') }}
+    <v-card class="pt-1 mt-5">
+      <v-card-title>
+        {{ $t("titles.vouchers") }}
+        <v-btn v-if="selected.length>0" class="ml-3" color="error" @click="del">
+          {{ $t("actions.remove_selected") }}
         </v-btn>
-      </v-card-actions>
+        <v-spacer />
+        <v-text-field
+          v-model="search"
+          append-icon="mdi-magnify"
+          :label="$t('fields.search')"
+          single-line
+          hide-details
+        />
+      </v-card-title>
+      <v-data-table
+        v-model="selected"
+        item-key="code"
+        :headers="headers"
+        :items="vouchersList"
+        :search="search"
+        show-select
+      />
     </v-card>
   </div>
 </template>
@@ -121,10 +131,22 @@ export default {
     servers: {
       type: Object,
       required: true
+    },
+    vouchers: {
+      type: Object,
+      required: true
     }
   },
   data () {
     return {
+      selected: [],
+      headers: [
+        { text: 'Kod', value: 'code' },
+        { text: 'Stworzony', value: 'start' },
+        { text: 'Wygasa', value: 'end' },
+        { text: 'Opis', value: 'service' }
+      ],
+      search: '',
       valid: false,
       date: [(new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10)],
       menu: false,
@@ -162,6 +184,18 @@ export default {
         })
       }
       return result
+    },
+    vouchersList () {
+      const result = []
+      for (const i in this.vouchers) {
+        result.push({
+          code: i,
+          service: this.shop.services[this.vouchers[i].service].name,
+          start: this.vouchers[i].start,
+          end: this.vouchers[i].end ? this.vouchers[i].end : this.vouchers[i].start
+        })
+      }
+      return result
     }
   },
   methods: {
@@ -174,7 +208,10 @@ export default {
       a.click()
     },
     del () {
-      this.$fire.database.ref().child(`vouchers/${this.$route.params.shopid}`).remove()
+      for (const i in this.selected) {
+        this.$fire.database.ref().child(`vouchers/${this.$route.params.shopid}/${this.selected[i].code}`).remove()
+      }
+      this.selected = []
     },
     create () {
       this.$refs.form.validate()

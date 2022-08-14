@@ -12,7 +12,7 @@ const regex = {
     return v.length >= 4
   },
   microsms_hash (v) {
-    return /^[A-Za-z0-9$*@]+$/.test(v)
+    return /^[A-Za-z0-9$*@!]+$/.test(v)
   },
   lvlup_api (v) {
     return /^[A-Za-z]+$/.test(v)

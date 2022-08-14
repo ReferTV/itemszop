@@ -1,10 +1,11 @@
 <template>
   <div>
-    <ShopListener @servers="servers=$event" @shop="shop=$event" @config="config=$event" />
+    <ShopListener @servers="servers=$event" @shop="shop=$event" @vouchers="vouchers=$event" @config="config=$event" />
     <nuxt-child
       v-if="shop.loaded"
       :shop="shop"
       :servers="servers"
+      :vouchers="vouchers"
       :config="config"
       :url="url"
     />
@@ -23,7 +24,8 @@ export default {
     return {
       shop: {},
       servers: {},
-      config: {}
+      config: {},
+      vouchers: {}
     }
   },
   head () {
